@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const bcrypt = require('bcryptjs')
 
 const app = express()
 app.use(bodyParser.json())
@@ -40,6 +41,11 @@ app.post('/signin', (req, res) => {
 
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(password, salt, function(err, hash) {
+        console.log(hash)
+    })
+  })
   database.users.push(
     {
       id: '125',
