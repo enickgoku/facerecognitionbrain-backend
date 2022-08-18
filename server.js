@@ -74,7 +74,7 @@ app.get('/proifle/:id', (req, res) => {
   }
 })
 
-app.put('/image', (req, res) => {
+app.post('/image', (req, res) => {
   const { id } = req.body
   let found = false
   database.users.forEach(user => {
