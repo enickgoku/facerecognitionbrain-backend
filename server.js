@@ -15,7 +15,7 @@ app.get('/profile/:userId', authenticateUser, getUser)
 app.put('/image/:userId', authenticateUser, updateUser)
 
 app.use((req, res) => {
-  res.status(404).send({ error: `Cannot ${req.method} ${req.originalUrl}`})
+  res.status(404).send({ error: `Cannot ${req.method} on ${req.originalUrl}`})
 })
 
 app.listen(3001, () => {
