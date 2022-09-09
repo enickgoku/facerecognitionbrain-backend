@@ -24,6 +24,12 @@ const createUser = async (req, res) => {
   const { body } = req
   const { email, name, password } = body
 
+  if (!email || !name || !password) {
+    return res.status(400).send({
+      error: 'All fields are required',
+    })
+  }
+
   const SALT = 10
 
   const hash = await bcrypt.hash(password, SALT)
