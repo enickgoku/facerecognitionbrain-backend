@@ -8,6 +8,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/availability', checkAvailability)
 app.post('/register', createUser)
 app.post('/signin', authorizeUser)
@@ -18,6 +19,6 @@ app.use((req, res) => {
   res.status(404).send({ error: `Cannot ${req.method} on ${req.originalUrl}`})
 })
 
-app.listen(3001, () => {
-  console.log("Working on 3001")
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Running on ${process.env.PORT}`)
 })
