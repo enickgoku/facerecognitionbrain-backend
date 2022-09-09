@@ -1,6 +1,6 @@
+const allConfig = require('../config/config.json')
 const Sequelize = require('sequelize')
 const User = require('./user')
-const allConfig = require('../config/config.json')
 
 const env = process.env.NODE_ENV || 'development'
 const config = allConfig[env]
