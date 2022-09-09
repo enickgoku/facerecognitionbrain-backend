@@ -10,7 +10,7 @@ app.use(express.json())
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/availability', checkAvailability)
-app.post('/register', createUser)
+app.post('/register', cors(), createUser)
 app.post('/signin', authorizeUser)
 app.get('/profile/:userId', authenticateUser, getUser)
 app.put('/image/:userId', authenticateUser, updateUser)
