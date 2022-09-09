@@ -1,4 +1,4 @@
-require('dotenv/config')
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const { createUser, checkAvailability, authenticateUser, authorizeUser, getUser, updateUser } = require('./controllers/users')
